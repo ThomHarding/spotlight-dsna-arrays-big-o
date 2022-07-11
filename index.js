@@ -5,8 +5,8 @@ function push(arr, item) {
 }
 
 const arr1 = ['a', 'b', 'c'];
-console.log(push(arr1, 'd')); //4
-console.log(arr1); //[a, b, c, d]
+// console.log(push(arr1, 'd')); //4
+// console.log(arr1); //[a, b, c, d]
 
 
 
@@ -58,6 +58,38 @@ function unshift(arr, item) {
     //returns new length of array
     return arr.length;
 }
+
+///////////////////////////////
+
+function hasDuplicates(arr) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        for (let t = i + 1; t < arr.length; t++) {
+            if (arr[i] == arr[t]) {
+                return true;
+            }
+        }
+        // O(n^2). bad
+    }
+    return false;
+}
+
+function betterHasDuplicates(arr) {
+    arr.sort(); //sort the array to put all the values in order
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] === arr[i+1]) {
+        // since the array is sorted
+        // if there's a duplicate, it's right next to it
+            return true;
+        }
+    }
+    // if we're here, there are no duplicates, so return false
+    return false;
+}
+
+console.log(hasDuplicates(['j', 'o', 'w', 'w']));
+console.log(hasDuplicates(['m', 'b', 'p', 'x']));
+console.log(betterHasDuplicates(['j', 'o', 'w', 'w']));
+console.log(betterHasDuplicates(['m', 'b', 'p', 'x']));
 
 
 module.exports = { push, pop, shift, unshift };
