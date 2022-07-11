@@ -8,7 +8,6 @@ const arr1 = ['a', 'b', 'c'];
 console.log(push(arr1, 'd')); //4
 console.log(arr1); //[a, b, c, d]
 
-module.exports = { push };
 
 
 //////////////////////////////////////
@@ -26,3 +25,22 @@ function pop(arr) {
     //return item that was removed from array
     return x;
 }
+
+////////////////////////////
+
+function shift(arr) {
+    //remove first item
+    const item = arr[0];
+    //move the rest of em over
+    //assuming it has at least 2 elements
+    for (let i = 0; i < arr.length - 1; i++) {
+        arr[i] = arr[i+1];
+    }
+    //decrement length
+    arr.length = arr.length - 1;
+    //return removed item
+    return item;
+}
+
+
+module.exports = { push, pop, shift };

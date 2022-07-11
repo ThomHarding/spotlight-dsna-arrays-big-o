@@ -1,4 +1,4 @@
-const { push } = require("./index.js");
+const { push, pop, shift } = require("./index.js");
 
 describe("push", () => {
   it("should add an element to an array", () => {
@@ -12,6 +12,15 @@ describe("push", () => {
     const arr = ["a", "b", "c"];
     expect(pop(arr)).toBe("c");
     expect(arr.length).toBe(2);
-    expect(arr[3]).toBe(null);
+  });
+});
+
+describe("shift", () => {
+
+  it("should return the item removed from the array", () => {
+    const arr = ["a", "b", "c"];
+    expect(shift(arr)).toBe("a");
+    expect(arr.length).toBe(2);
+    expect(arr).toEqual(["b", "c"]);
   });
 });
