@@ -42,5 +42,22 @@ function shift(arr) {
     return item;
 }
 
+////////////////////////////
 
-module.exports = { push, pop, shift };
+function unshift(arr, item) {
+    //increase length of array to make room for new item to be added
+    arr.length = arr.length + 1; //[a, b, c, ~]
+    
+    //["a", "b", "c"]
+    //moves items in array to an index of +1, leaving an open space at beginning (i[0]) for new item
+    for (let i = arr.length - 1; i > 0; i--) {
+        arr[i] = arr[i - 1];
+    }
+    //new item as added to beginning of array
+    arr[0] = item;
+    //returns new length of array
+    return arr.length;
+}
+
+
+module.exports = { push, pop, shift, unshift };
