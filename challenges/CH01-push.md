@@ -19,7 +19,7 @@ Write a function `push` that takes an array and a new item, and:
 1. Returns the new length of the array
 
 ```js
-function push(arr, item) {
+function push(arr, item) { }
 ```
 
 > **You can assume valid inputs**
